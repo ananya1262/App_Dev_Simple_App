@@ -1,0 +1,44 @@
+package com.example.demo1;
+
+import android.os.Bundle;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.View;
+
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import com.example.demo1.databinding.ActivityMainBinding;
+
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ImageView;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity {
+
+    ImageView image;
+
+    int[] pics= {R.drawable.img_1,R.drawable.img_2,R.drawable.img_3,R.drawable.img_4};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        image=(ImageView) findViewById(R.id.picture);
+
+    }
+
+    public void change(View view)
+    {
+        Random rand= new Random();
+        int rand_int = rand.nextInt(4);
+        image.setImageResource(pics[rand_int]);
+    }
+}
